@@ -34,7 +34,8 @@
               "documents": [
                 {
                   "kind": "Invoice",
-                  "url": "https://microsoft.com/invoice.pdf"
+                  "url": "https://microsoft.com/invoice.pdf",
+                  "source": "DRS"
                 }
               ],
               "payments": [
@@ -75,7 +76,8 @@
               "documents": [
                 {
                   "kind": "VoidNote",
-                  "url": "https://microsoft.com/voidNote.pdf"
+                  "url": "https://microsoft.com/voidNote.pdf",
+                  "source": "DRS"
                 }
               ],
               "payments": [

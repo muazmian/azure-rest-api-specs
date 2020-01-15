@@ -6153,10 +6153,9 @@
           "description": "Invoice status.",
           "type": "string",
           "enum": [
-            "PastDue",
             "Due",
-            "Paid",
-            "Void"
+            "OverDue",
+            "Paid"
           ],
           "readOnly": true,
           "x-ms-enum": {
@@ -6229,6 +6228,11 @@
           "items": {
             "$ref": "#/definitions/PaymentProperties"
           }
+        },
+        "subscriptionId": {
+          "description": "The subscription id this invoice belongs to.",
+          "type": "string",
+          "readOnly": true
         }
       }
     },
@@ -6279,9 +6283,10 @@
           "description": "Document type.",
           "type": "string",
           "enum": [
+            "Unknown",
             "Invoice",
             "VoidNote",
-            "Receipt",
+            "TaxReceipt",
             "CreditNote"
           ],
           "readOnly": true,
@@ -6294,6 +6299,18 @@
           "description": "Document URL.",
           "type": "string",
           "readOnly": true
+        },
+        "source": {
+          "description": "Source of document",
+          "enum": [
+            "DRS",
+            "ENF"
+          ],
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "DocumentSource",
+            "modelAsString": true
+          }
         }
       }
     },

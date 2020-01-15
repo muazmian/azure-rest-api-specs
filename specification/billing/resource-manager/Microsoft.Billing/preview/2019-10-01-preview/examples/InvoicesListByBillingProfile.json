@@ -35,15 +35,18 @@
               "documents": [
                 {
                   "kind": "Invoice",
-                  "url": "https://microsoft.com/invoice.pdf"
+                  "url": "https://microsoft.com/invoice.pdf",
+                  "source": "DRS"
                 },
                 {
                   "kind": "Receipt",
-                  "url": "https://microsoft.com/taxDoc.pdf"
+                  "url": "https://microsoft.com/taxDoc.pdf",
+                  "source": "DRS"
                 },
                 {
                   "kind": "CreditNote",
-                  "url": "https://microsoft.com/creditNote.pdf"
+                  "url": "https://microsoft.com/creditNote.pdf",
+                  "source": "DRS"
                 }
               ],
               "payments": [
@@ -84,15 +87,18 @@
               "documents": [
                 {
                   "kind": "Invoice",
-                  "url": "https://microsoft.com/invoice.pdf"
+                  "url": "https://microsoft.com/invoice.pdf",
+                  "source": "DRS"
                 },
                 {
                   "kind": "Receipt",
-                  "url": "https://microsoft.com/taxDoc.pdf"
+                  "url": "https://microsoft.com/taxDoc.pdf",
+                  "source": "DRS"
                 },
                 {
                   "kind": "CreditNote",
-                  "url": "https://microsoft.com/creditNote.pdf"
+                  "url": "https://microsoft.com/creditNote.pdf",
+                  "source": "DRS"
                 }
               ],
               "payments": [

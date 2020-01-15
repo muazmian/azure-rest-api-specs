@@ -32,7 +32,8 @@
           "documents": [
             {
               "kind": "Invoice",
-              "url": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions/11000000-0000-0000-0000-000000000000/invoices/1383724/download"
+              "url": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions/11000000-0000-0000-0000-000000000000/invoices/1383724/download",
+              "source": "DRS"
             }
           ],
           "payments": [
