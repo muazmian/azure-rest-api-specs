@@ -5781,6 +5781,11 @@
           "description": "The date this billing instruction is no longer in effect.",
           "type": "string",
           "format": "date-time"
+        },
+        "creationDate": {
+          "description": "The date this billing instruction was created.",
+          "type": "string",
+          "format": "date-time"
         }
       }
     },
