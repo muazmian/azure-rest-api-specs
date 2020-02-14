@@ -1,0 +1,18 @@
+{
+  "parameters": {
+    "api-version": "2019-10-01-preview",
+    "enrollmentAccountName": "{enrollmentAccountName}"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "id": "/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountName}",
+        "name": "{enrollmentAccountName}",
+        "type": "Microsoft.Billing/enrollmentAccounts",
+        "properties": {
+          "principalName": "kathy@contoso.com"
+        }
+      }
+    }
+  }
+}

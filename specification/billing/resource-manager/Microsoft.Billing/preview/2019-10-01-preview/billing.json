@@ -1484,6 +1484,102 @@
         }
       }
     },
+    "/providers/Microsoft.Billing/enrollmentAccounts": {
+      "get": {
+        "tags": [
+          "EnrollmentAccounts"
+        ],
+        "x-ms-examples": {
+          "EnrollmentAccountsList": {
+            "$ref": "./examples/EnrollmentAccountsList.json"
+          },
+          "EnrollmentAccountsListWithExpand": {
+            "$ref": "./examples/EnrollmentAccountsListWithExpand.json"
+          }
+        },
+        "operationId": "EnrollmentAccounts_List",
+        "description": "Lists the enrollment accounts the caller has access to.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          },
+          {
+            "name": "$expand",
+            "description": "May be used to expand the enrollmentAccounts.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/EnrollmentAccountListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountName}": {
+      "get": {
+        "tags": [
+          "EnrollmentAccounts"
+        ],
+        "x-ms-examples": {
+          "EnrollmentAccountsGet": {
+            "$ref": "./examples/EnrollmentAccountsGet.json"
+          },
+          "EnrollmentAccountsGetWithExpand": {
+            "$ref": "./examples/EnrollmentAccountsGetWithExpand.json"
+          }
+        },
+        "operationId": "EnrollmentAccounts_Get",
+        "description": "Gets a enrollment account by name.",
+        "parameters": [
+          {
+            "name": "enrollmentAccountName",
+            "in": "path",
+            "description": "Enrollment Account name.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          },
+          {
+            "name": "$expand",
+            "description": "May be used to expand the enrollmentAccounts.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/EnrollmentAccount"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
     "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/enrollmentAccounts": {
       "get": {
         "tags": [
@@ -5655,7 +5751,7 @@
       ],
       "properties": {
         "properties": {
-          "description": "An account.",
+          "description": "An enrollment account.",
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/EnrollmentAccountProperties"
         }
@@ -5667,6 +5763,29 @@
         "accountName": {
           "description": "The account name.",
           "type": "string"
+        },
+        "principalName": {
+          "description": "The account owner's principal name.",
+          "type": "string",
+          "readOnly": true
+        },
+        "offerTypes": {
+          "description": "Offers codes",
+          "type": "array",
+          "readOnly": true,
+          "items": {
+              "$type": "string"
+            }
+          }
+        },
+        "subscriptionLinks": {
+          "description": "List of subscriptions in Enrollment",
+          "type": "array",
+          "readOnly": true,
+          "items": {
+              "$type": "string"
+            }
+          }
         },
         "costCenter": {
           "description": "The cost center name.",

@@ -1,0 +1,39 @@
+{
+    "parameters": {
+      "api-version": "2019-10-01-preview",
+      "$expand": "offerTypes, subscriptionsLinks"
+   },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "id": "/providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556",
+            "name": "e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556",
+            "type": "Microsoft.Billing/enrollmentAccounts",
+            "properties": {
+              "principalName": "kathy@contoso.com",
+              "offerTypes": ["MS-AZR-0017P"],
+              "subscriptionLinks": [
+                "/subscriptions/99fc23fa-bbd5-4bcd-8081-197108d8bb77",
+                "/subscriptions/dddd1c24-0850-4771-b7e2-d3d8e3b30418"
+            ]
+            }
+          },
+          {
+            "id": "/providers/Microsoft.Billing/enrollmentAccounts/edd24053-07cd-4ed4-aa5b-326160a6680d",
+            "name": "edd24053-07cd-4ed4-aa5b-326160a6680d",
+            "type": "Microsoft.Billing/enrollmentAccounts",
+            "properties": {
+              "principalName": "dan@contoso.com",
+              "offerTypes": ["MS-AZR-0017P"],
+              "subscriptionLinks": [
+                "/subscriptions/d446d51b-cf6c-4aac-af43-05d2bb1297bc"
+            ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
