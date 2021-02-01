@@ -3868,6 +3868,23 @@
           "description": "Indicates whether user has read access to the billing account.",
           "type": "boolean",
           "readOnly": true
+        },
+        "tradeScreeningState": {
+          "description": "The current trade screening state of the billing account.",
+          "type": "string",
+          "enum": [
+            "Unknown",
+            "NeedScreening",
+            "UnderReview",
+            "IngestionError",
+            "Allowed",
+            "NotAllowed"
+          ],
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "TradeScreeningState",
+            "modelAsString": true
+          }
         }
       }
     },

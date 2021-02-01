@@ -11,8 +11,8 @@
         "name": "{invoiceName}",
         "type": "Microsoft.Billing/billingAccounts/invoices",
         "properties": {
-          "dueDate": "2018-01-16T17:32:28Z",
-          "invoiceDate": "2018-01-01T17:32:28Z",
+          "dueDate": "2018-01-16",
+          "invoiceDate": "2018-01-01",
           "status": "Due",
           "amountDue": {
             "currency": "USD",
@@ -46,8 +46,8 @@
             "currency": "USD",
             "value": 16.53
           },
-          "invoicePeriodStartDate": "2018-01-01T17:32:28Z",
-          "invoicePeriodEndDate": "2018-01-15T17:32:28Z",
+          "invoicePeriodStartDate": "2018-01-01",
+          "invoicePeriodEndDate": "2018-01-15",
           "isMonthlyInvoice": false,
           "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}",
           "billingProfileDisplayName": "Contoso Operations Billing",
@@ -64,7 +64,7 @@
           ],
           "payments": [
             {
-              "date": "2018-01-14T17:32:28Z",
+              "date": "2018-01-14",
               "paymentType": "credited",
               "amount": {
                 "currency": "USD",
