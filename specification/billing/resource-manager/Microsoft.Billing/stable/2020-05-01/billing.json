@@ -3869,6 +3869,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "subscriptions": {
+          "description": "List of subscriptions, associated with billing account.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/billingAccountSubscriptions"
+          }
+        },
         "tradeScreeningState": {
           "description": "The current trade screening state of the billing account.",
           "type": "string",
@@ -3885,6 +3892,64 @@
             "name": "TradeScreeningState",
             "modelAsString": true
           }
+        }
+      }
+    },
+    "billingAccountSubscriptions": {
+      "description": "Subscriptions of a billing accounts",
+      "properties": {
+        "Id": {
+          "description": "Id of subscription.",
+          "type": "string",
+          "readOnly": true
+        },
+        "Name": {
+          "description": "Name of subscription.",
+          "type": "string",
+          "readOnly": true
+        },
+        "OfferId": {
+          "description": "Offer type of subscription.",
+          "type": "string",
+          "readOnly": true
+        },
+        "Status": {
+          "description": "The current status of the subscription",
+          "type": "string",
+          "enum": [
+            "Other",
+            "Active",
+            "Suspended",
+            "Deleted"
+          ],
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "Status",
+            "modelAsString": true
+          }
+        },
+        "SuspensionReasons": {
+          "description": "Reason subscription is suspended",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "None",
+              "Canceled",
+              "PastDue",
+              "SuspiciousActivity",
+              "Other",
+              "Transferred",
+              "PolicyViolation",
+              "SpendingLimitReached",
+              "Expired"
+            ],
+            "x-ms-enum": {
+              "name": "SuspensionReason",
+              "modelAsString": true
+            }
+          },
+          "readOnly": true
         }
       }
     },
@@ -4043,6 +4108,82 @@
           "description": "The sku description of the Azure plan for the subscription.",
           "type": "string",
           "readOnly": true
+        },
+        "subscriptionBillingStatus": {
+          "description": "The subscription status.",
+          "enum": [
+            "Active",
+            "Deleted",
+            "Disabled",
+            "PastDue"
+          ],
+          "type": "string",
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "SubscriptionBillingStatus",
+            "modelAsString": true
+          }
+        },
+        "spendingLimitDetails": {
+          "description": "Spending limit details.",
+          "items": {
+            "$ref": "#/definitions/SpendingLimitDetailsProperties"
+          }
+        }
+      }
+    },
+    "SpendingLimitDetailsProperties": {
+      "description": "The details of spending limit policy set on a billing profile.",
+      "properties": {
+        "amount": {
+          "description": "The initial amount for the billing profile.",
+          "type": "number",
+          "readOnly": true
+        },
+        "currency": {
+          "description": "The currency in which the charges for the billing profile are billed.",
+          "type": "string",
+          "readOnly": true
+        },
+        "endDate": {
+          "description": "The date when this spending limit is no longer in effect.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "startDate": {
+          "description": "The date when this spending limit goes into effect.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "description": "The type of spending limit.",
+          "enum": [
+            "FreeAccount",
+            "Sandbox",
+            "None"
+          ],
+          "type": "string",
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "Type",
+            "modelAsString": true
+          }
+        },
+        "status": {
+          "description": "The status of current spending limit.",
+          "enum": [
+            "Active",
+            "Expired",
+            "LimitReached",
+            "LimitRemoved",
+            "None"
+          ],
+          "type": "string",
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "SpendingLimitStatus",
+            "modelAsString": true
+          }
         }
       }
     },
@@ -5412,6 +5553,11 @@
             "$ref": "#/definitions/BillingSubscription"
           }
         },
+        "totalCount": {
+          "description": "Total number of records.",
+          "type": "number",
+          "readOnly": true
+        },
         "nextLink": {
           "description": "The link (url) to the next page of results.",
           "type": "string",
@@ -5462,6 +5608,12 @@
           "x-ms-enum": {
             "name": "BillingSubscriptionStatusType",
             "modelAsString": true
+          }
+        },
+        "SubscriptionBillingStatusReasonDetails": {
+          "description": "Spending limit details.",
+          "items": {
+            "$ref": "#/definitions/SubscriptionBillingStatusReasonDetailsProperties"
           }
         },
         "lastMonthCharges": {
@@ -5521,6 +5673,41 @@
           "description": "The sku description of the Azure plan for the subscription.",
           "type": "string",
           "readOnly": true
+        },
+        "spendingLimitDetails": {
+          "description": "Spending limit details.",
+          "items": {
+            "$ref": "#/definitions/SpendingLimitDetailsProperties"
+          }
+        }
+      }
+    },
+    "SubscriptionBillingStatusReasonDetailsProperties": {
+      "description": "Reason for the state of subscription.",
+      "properties": {
+        "effectiveDate": {
+          "description": "The start date of the enrollment account.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "subscriptionBillingStatusReason": {
+          "description": "The current billing status of the subscription.",
+          "type": "string",
+          "enum": [
+            "None",
+            "Canceled",
+            "PastDue",
+            "SuspiciousActivity",
+            "Other",
+            "Transferred",
+            "PolicyViolation",
+            "SpendingLimitReached",
+            "Expired"
+          ],
+          "x-ms-enum": {
+            "name": "SubscriptionBillingStatusReasonDetails",
+            "modelAsString": true
+          }
         }
       }
     },
