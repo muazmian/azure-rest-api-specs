@@ -5617,6 +5617,11 @@
             "$ref": "#/definitions/Customer"
           }
         },
+        "totalCount": {
+          "description": "Total number of records.",
+          "type": "number",
+          "readOnly": true
+        },
         "nextLink": {
           "description": "The link (url) to the next page of results.",
           "type": "string",
@@ -7043,6 +7048,10 @@
     "BillingProfileProperties": {
       "description": "The properties of the billing profile.",
       "properties": {
+        "SystemId": {
+          "description": "The Id of the invoice section.",
+          "type": "string"
+        },
         "displayName": {
           "description": "The name of the billing profile.",
           "type": "string"
@@ -7056,7 +7065,7 @@
           "$ref": "#/definitions/AddressDetails"
         },
         "hasReadAccess": {
-          "description": "Flag determining whether user has only read access on resources",
+          "description": "Flag determining whether user has read-only access on resource.",
           "type": "boolean"
         },
         "billingRelationshipType": {
@@ -7199,6 +7208,14 @@
         },
         "postalCode": {
           "description": "Postal code.",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email address.",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "description": "Phone number.",
           "type": "string"
         }
       }
@@ -8608,6 +8625,14 @@
     "PaymentMethodProperties": {
       "description": "The properties of a payment method.",
       "properties": {
+        "billingProfileDisplayName": {
+          "description": "Displayname of billing profile.",
+          "type": "string"
+        },
+        "billingProfileId": {
+          "description": "Id of billing profile.",
+          "type": "string"
+        },
         "paymentMethodType": {
           "description": "The type of payment method.",
           "type": "string",
@@ -8681,6 +8706,11 @@
               "description": "Operation type such as read, write and delete.",
               "type": "string",
               "readOnly": true
+            },
+            "description": {
+              "description": "Description of operation.",
+              "type": "string",
+              "readOnly": true
             }
           }
         }
@@ -8696,6 +8726,11 @@
           "items": {
             "$ref": "#/definitions/Operation"
           }
+        },
+        "isDataAction": {
+          "description": "Identies if the operation is a data operation.",
+          "type": "boolean",
+          "readOnly": true
         },
         "nextLink": {
           "description": "URL to get the next set of operation list results if there are any.",
@@ -8756,6 +8791,11 @@
       "properties": {
         "createdOn": {
           "description": "The date the role assignment was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedOn": {
+          "description": "The date the role assignment was modified.",
           "type": "string",
           "readOnly": true
         },

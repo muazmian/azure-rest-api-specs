@@ -6141,6 +6141,11 @@
               "description": "Operation type such as read, write and delete.",
               "type": "string",
               "readOnly": true
+            },
+            "description": {
+              "description": "Description of operation.",
+              "type": "string",
+              "readOnly": true
             }
           }
         }
@@ -6156,6 +6161,11 @@
           "items": {
             "$ref": "#/definitions/Operation"
           }
+        },
+        "isDataAction": {
+          "description": "Identies if the operation is a data operation.",
+          "type": "boolean",
+          "readOnly": true
         },
         "nextLink": {
           "description": "URL to get the next set of operation list results if there are any.",
