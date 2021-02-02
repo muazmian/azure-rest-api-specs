@@ -4775,6 +4775,14 @@
           "description": "Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.",
           "$ref": "#/definitions/TargetCloud",
           "readOnly": true
+        },
+        "tags": {
+          "type": "object",
+          "description": "Tags associated with the invoice section.",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "maxItems": 1000
         }
       }
     },

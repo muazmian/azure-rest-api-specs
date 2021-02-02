@@ -3373,7 +3373,7 @@
           "200": {
             "description": "OK. The request has succeeded.",
             "schema": {
-              "$ref": "#/definitions/UpdateAutoRenewOperation"
+              "$ref": "#/definitions/Product"
             }
           },
           "default": {
@@ -5239,7 +5239,7 @@
           "201": {
             "description": "Role assignment is successfully created",
             "schema": {
-              "$ref": "#/definitions/BillingRoleAssignmentListResult"
+              "$ref": "#/definitions/BillingRoleAssignment"
             }
           },
           "default": {
@@ -5665,6 +5665,16 @@
           "items": {
             "$ref": "#/definitions/Reseller"
           }
+        },
+        "billingProfileDisplayName": {
+          "description": "The name of the billing profile to which the subscription is billed.",
+          "type": "string",
+          "readOnly": true
+        },
+        "billingProfileId": {
+          "type": "string",
+          "description": "The ID of the billing profile to which the product will be billed after the transfer.",
+          "readOnly": true
         }
       }
     },
@@ -6247,28 +6257,6 @@
       "x-ms-enum": {
         "name": "subscriptionTransferValidationErrorCode",
         "modelAsString": true
-      }
-    },
-    "UpdateAutoRenewOperation": {
-      "type": "object",
-      "description": "Result of the update auto renew operation",
-      "properties": {
-        "properties": {
-          "description": "Summary of update auto renew operation properties",
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/UpdateAutoRenewOperationProperties"
-        }
-      }
-    },
-    "UpdateAutoRenewOperationProperties": {
-      "type": "object",
-      "description": "Summary of update auto renew operation properties",
-      "properties": {
-        "endDate": {
-          "type": "string",
-          "format": "date-time",
-          "description": "The date at which the product will be canceled."
-        }
       }
     },
     "BillingAccountListResult": {
@@ -7257,6 +7245,11 @@
             "$ref": "#/definitions/InvoiceSection"
           }
         },
+        "totalCount": {
+          "description": "Total number of records.",
+          "type": "number",
+          "readOnly": true
+        },
         "nextLink": {
           "description": "The link (url) to the next page of results.",
           "type": "string",
@@ -7286,6 +7279,14 @@
         "SystemId": {
           "description": "The Id of the invoice section.",
           "type": "string"
+        },
+        "labels": {
+          "type": "object",
+          "description": "Dictionary of metadata associated with the invoice section.",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "maxItems": 1000
         },
         "displayName": {
           "description": "The name of the invoice section.",
@@ -7337,6 +7338,11 @@
           "type": "string",
           "readOnly": true
         },
+        "invoiceSectionSystemId": {
+          "description": "The system generated unique identifier for an invoice section.",
+          "type": "string",
+          "readOnly": true
+        },
         "invoiceSectionDisplayName": {
           "description": "The name of the invoice section.",
           "type": "string",
@@ -7344,6 +7350,11 @@
         },
         "billingProfileId": {
           "description": "The ID of the billing profile for the invoice section.",
+          "type": "string",
+          "readOnly": true
+        },
+        "billingProfileSystemId": {
+          "description": "The system generated unique identifier for a billing profile.",
           "type": "string",
           "readOnly": true
         },
@@ -7815,6 +7826,11 @@
             "$ref": "#/definitions/Product"
           }
         },
+        "totalCount": {
+          "description": "Total number of records.",
+          "type": "number",
+          "readOnly": true
+        },
         "nextLink": {
           "description": "The link (url) to the next page of results.",
           "type": "string",
@@ -7849,7 +7865,7 @@
         "purchaseDate": {
           "description": "The date when the product was purchased.",
           "type": "string",
-          "format": "date-time",
+          "format": "date",
           "readOnly": true
         },
         "productTypeId": {
@@ -8290,6 +8306,11 @@
           "type": "string",
           "readOnly": true
         },
+        "invoiceId": {
+          "description": "The ID of the invoice on which the transaction was billed. This field is only applicable for transactions which are billed.",
+          "type": "string",
+          "readOnly": true
+        },
         "orderId": {
           "description": "The order ID of the reservation. The field is only applicable for transaction of kind reservation.",
           "type": "string",
@@ -8380,6 +8401,11 @@
         },
         "subscriptionName": {
           "description": "The name of the subscription that was used for the transaction. The field is only applicable for transaction of kind reservation.",
+          "type": "string",
+          "readOnly": true
+        },
+        "azurePlan": {
+          "description": "The type of azure plan of the subscription that was used for the transaction.",
           "type": "string",
           "readOnly": true
         },
