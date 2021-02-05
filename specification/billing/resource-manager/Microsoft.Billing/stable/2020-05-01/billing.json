@@ -3575,6 +3575,11 @@
             "$ref": "#/definitions/Customer"
           }
         },
+        "totalCount": {
+          "description": "Total number of records.",
+          "type": "number",
+          "readOnly": true
+        },
         "nextLink": {
           "description": "The link (url) to the next page of results.",
           "type": "string",
@@ -3822,6 +3827,10 @@
             "name": "AccountType",
             "modelAsString": true
           }
+        },
+        "NotificationEmailAddress": {
+          "description": "Notification email address, only for legacy accounts",
+          "type": "string"
         },
         "accountStatus": {
           "description": "The current status of the billing account.",
@@ -4250,7 +4259,7 @@
           "type": "boolean",
           "readOnly": true
         },
-        "marketplacesEnabled": {
+        "marketplaceEnabled": {
           "description": "The policy that controls whether Azure marketplace purchases are allowed in the enrollment.",
           "type": "boolean",
           "readOnly": true
@@ -4714,6 +4723,11 @@
           "items": {
             "$ref": "#/definitions/InvoiceSection"
           }
+        },
+        "totalCount": {
+          "description": "Total number of records.",
+          "type": "number",
+          "readOnly": true
         },
         "nextLink": {
           "description": "The link (url) to the next page of results.",
@@ -5328,6 +5342,11 @@
           "items": {
             "$ref": "#/definitions/Product"
           }
+        },
+        "totalCount": {
+          "description": "Total number of records.",
+          "type": "number",
+          "readOnly": true
         },
         "nextLink": {
           "description": "The link (url) to the next page of results.",
@@ -6221,6 +6240,11 @@
       "properties": {
         "createdOn": {
           "description": "The date the role assignment was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedOn": {
+          "description": "The date the role assignment was modified.",
           "type": "string",
           "readOnly": true
         },
