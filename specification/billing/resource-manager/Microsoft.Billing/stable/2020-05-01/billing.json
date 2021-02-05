@@ -6432,6 +6432,12 @@
             "modelAsString": true
           }
         },
+        "billingProfileInfo": {
+          "description": "Details about billing profile.",
+          "items": {
+            "$ref": "#/definitions/billingProfileInfo"
+          }
+        },
         "effectiveDate": {
           "description": "The date from which the agreement is effective.",
           "type": "string",
@@ -6454,6 +6460,36 @@
         "status": {
           "description": "The current status of the agreement.",
           "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "billingProfileInfo": {
+      "description": "Details about billing profile.",
+      "properties": {
+        "billingAccountId": {
+          "description": "The ID of the billing account.",
+          "type": "string",
+          "readOnly": true
+        },
+        "billingProfileDisplayName": {
+          "description": "The name of the billing profile.",
+          "type": "string",
+          "readOnly": true
+        },
+        "billingProfileId": {
+          "type": "string",
+          "description": "The ID of the billing profile.",
+          "readOnly": true
+        },
+        "billingProfileFriendlyId": {
+          "type": "string",
+          "description": "User friendly ID of the billing profile.",
+          "readOnly": true
+        },
+        "IndirectRelationshipOrganizationName": {
+          "type": "string",
+          "description": "Name of organization of agreement.",
           "readOnly": true
         }
       }

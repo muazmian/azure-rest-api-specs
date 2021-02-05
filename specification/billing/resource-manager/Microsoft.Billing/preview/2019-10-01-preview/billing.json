@@ -5789,6 +5789,11 @@
     "TransferDetails": {
       "type": "object",
       "description": "Details of the transfer.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
       "properties": {
         "properties": {
           "description": "Details of the transfer.",
@@ -5800,6 +5805,11 @@
     "RecipientTransferDetails": {
       "type": "object",
       "description": "Details of the transfer.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
       "properties": {
         "properties": {
           "description": "Details of the transfer.",
@@ -5822,6 +5832,11 @@
           "type": "string",
           "readOnly": true,
           "description": "The ID of the product that is transferred."
+        },
+        "skuDescription": {
+          "description": "The sku description of the product that is transferred.",
+          "type": "string",
+          "readOnly": true
         },
         "transferStatus": {
           "type": "string",
@@ -6064,6 +6079,11 @@
             "$ref": "#/definitions/RecipientTransferDetails"
           }
         },
+        "totalCount": {
+          "description": "Total number of records.",
+          "type": "number",
+          "readOnly": true
+        },
         "nextLink": {
           "description": "The link (url) to the next page of results.",
           "type": "string",
@@ -6105,6 +6125,11 @@
     "TransferBillingSubscriptionResult": {
       "type": "object",
       "description": "Result of the transfer billing subscription operation.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
       "properties": {
         "properties": {
           "description": "Properties of the transfer billing subscription operation result.",
@@ -8835,6 +8860,11 @@
           "type": "string",
           "readOnly": true
         },
+        "createdByPrincipalPuid": {
+          "description": "The principal Puid of the user who created the role assignment.",
+          "type": "string",
+          "readOnly": true
+        },
         "createdByUserEmailAddress": {
           "description": "The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.",
           "type": "string",
@@ -9038,6 +9068,12 @@
             "modelAsString": true
           }
         },
+        "billingProfileInfo": {
+          "description": "Details about billing profile.",
+          "items": {
+            "$ref": "#/definitions/billingProfileInfo"
+          }
+        },
         "effectiveDate": {
           "description": "The date from which the agreement is effective.",
           "type": "string",
@@ -9064,6 +9100,36 @@
         }
       }
     },
+    "billingProfileInfo": {
+      "description": "Details about billing profile.",
+      "properties": {
+        "billingAccountId": {
+          "description": "The ID of the billing account.",
+          "type": "string",
+          "readOnly": true
+        },
+        "billingProfileDisplayName": {
+          "description": "The name of the billing profile.",
+          "type": "string",
+          "readOnly": true
+        },
+        "billingProfileId": {
+          "type": "string",
+          "description": "The ID of the billing profile.",
+          "readOnly": true
+        },
+        "billingProfileFriendlyId": {
+          "type": "string",
+          "description": "User friendly ID of the billing profile.",
+          "readOnly": true
+        },
+        "IndirectRelationshipOrganizationName": {
+          "type": "string",
+          "description": "Name of organization of agreement.",
+          "readOnly": true
+        }
+      }
+    },
     "ValidateTransferListResponse": {
       "description": "Result of transfer validation.",
       "properties": {
@@ -9072,19 +9138,8 @@
           "type": "array",
           "readOnly": true,
           "items": {
-            "$ref": "#/definitions/ValidateTransferResponse"
+            "$ref": "#/definitions/ValidateTransferResponseProperties"
           }
-        }
-      }
-    },
-    "ValidateTransferResponse": {
-      "type": "object",
-      "description": "Transfer validation response.",
-      "properties": {
-        "properties": {
-          "description": "The properties of transfer validation response.",
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/ValidateTransferResponseProperties"
         }
       }
     },
