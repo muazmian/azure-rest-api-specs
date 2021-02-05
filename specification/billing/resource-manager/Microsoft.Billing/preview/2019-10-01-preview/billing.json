@@ -6843,7 +6843,7 @@
     "DepartmentProperties": {
       "description": "The properties of a department.",
       "properties": {
-        "departmentName": {
+        "displayName": {
           "description": "The name of the department.",
           "type": "string"
         },
@@ -6853,6 +6853,10 @@
         },
         "status": {
           "description": "The status of the department.",
+          "type": "string"
+        },
+        "spendingQuota": {
+          "description": "Spending quota assigned to department.",
           "type": "string"
         },
         "enrollmentAccounts": {
@@ -6901,7 +6905,7 @@
     "EnrollmentAccountProperties": {
       "description": "The properties of an enrollment account.",
       "properties": {
-        "accountName": {
+        "displayName": {
           "description": "The name of the enrollment account.",
           "type": "string"
         },
@@ -6909,9 +6913,11 @@
           "description": "The cost center associated with the enrollment account.",
           "type": "string"
         },
-        "accountOwner": {
+        "ownerDetails": {
           "description": "The owner of the enrollment account.",
-          "type": "string"
+          "items": {
+            "$ref": "#/definitions/OwnerDetails"
+          }
         },
         "status": {
           "description": "The status of the enrollment account.",
@@ -6920,16 +6926,37 @@
         "startDate": {
           "description": "The start date of the enrollment account.",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "endDate": {
           "description": "The end date of the enrollment account.",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "department": {
           "description": "Associated department. By default this is not populated, unless it's specified in $expand.",
           "$ref": "#/definitions/Department"
+        }
+      }
+    },
+    "OwnerDetails": {
+      "description": "Details of account owner.",
+      "properties": {
+        "email": {
+          "description": "Email of account owner.",
+          "type": "string"
+        },
+        "puid": {
+          "description": "Puid of account owner.",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "Tenant Id of account owner.",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "Object Id of account owner.",
+          "type": "string"
         }
       }
     },
@@ -7924,7 +7951,7 @@
         "endDate": {
           "description": "The date when the product will be renewed or canceled.",
           "type": "string",
-          "format": "date-time",
+          "format": "date",
           "readOnly": true
         },
         "billingFrequency": {
@@ -8527,6 +8554,18 @@
     "PolicyProperties": {
       "description": "The properties of a policy.",
       "properties": {
+        "invoiceSectionLabelManagement": {
+          "description": "The policy that controls whether Invoice Section label management are allowed for a billing profile.",
+          "type": "string",
+          "enum": [
+            "Allowed",
+            "NotAllowed"
+          ],
+          "x-ms-enum": {
+            "name": "InvoiceSectionLabelManagementPolicy",
+            "modelAsString": true
+          }
+        },
         "marketplacePurchases": {
           "description": "The policy that controls whether Azure marketplace purchases are allowed for a billing profile.",
           "type": "string",
