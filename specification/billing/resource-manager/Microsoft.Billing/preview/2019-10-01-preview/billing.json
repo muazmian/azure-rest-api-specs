@@ -6676,22 +6676,22 @@
     "billingAccountSubscriptions": {
       "description": "Subscriptions of a billing accounts",
       "properties": {
-        "Id": {
+        "id": {
           "description": "Id of subscription.",
           "type": "string",
           "readOnly": true
         },
-        "Name": {
+        "name": {
           "description": "Name of subscription.",
           "type": "string",
           "readOnly": true
         },
-        "OfferId": {
+        "offerId": {
           "description": "Offer type of subscription.",
           "type": "string",
           "readOnly": true
         },
-        "Status": {
+        "status": {
           "description": "The current status of the subscription",
           "type": "string",
           "enum": [
@@ -6706,7 +6706,7 @@
             "modelAsString": true
           }
         },
-        "SuspensionReasons": {
+        "suspensionReasons": {
           "description": "Reason subscription is suspended",
           "type": "array",
           "items": {
